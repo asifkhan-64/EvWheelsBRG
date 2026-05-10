@@ -172,16 +172,14 @@ $fet = mysqli_fetch_assoc($get);
                         <li class="has_sub">
                             <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-battery-three-quarters"></i> <span> EV Battery</span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
                             <ul class="list-unstyled">
-                                <li><a href="battery_add.php">Add Type</a></li>
-                                <li><a href="batteries_list.php">Battery List</a></li>
+                                <li><a href="battery_add.php">Battery Types List</a></li>
                             </ul>
                         </li>
 
                         <li class="has_sub">
                             <a href="javascript:void(0);" class="waves-effect"><i class="fa-solid fa-list-alt"></i> <span> EV Parts</span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
                             <ul class="list-unstyled">
-                                <li><a href="parts_add.php">Add EV Parts</a></li>
-                                <li><a href="parts_list.php">EV Parts List</a></li>
+                                <li><a href="parts_add.php">EV Parts List </a></li>
                             </ul>
                         </li>
 
