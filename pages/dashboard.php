@@ -5,17 +5,17 @@ if (empty($_SESSION["user"])) {
     header("LOCATION:../index.php");
 }
 
-$customerQuery = mysqli_query($connect, "SELECT COUNT(*) AS allCustomers FROM `customer_add`");
-$fetCustomers = mysqli_fetch_assoc($customerQuery);
-$customers = $fetCustomers['allCustomers'];
+// $customerQuery = mysqli_query($connect, "SELECT COUNT(*) AS allCustomers FROM `customer_add`");
+// $fetCustomers = mysqli_fetch_assoc($customerQuery);
+// $customers = $fetCustomers['allCustomers'];
 
-$duesCustomers = mysqli_query($connect, "SELECT SUM(total_dues) AS allDues FROM `customer_add`");
-$fetDuesCustomers = mysqli_fetch_assoc($duesCustomers);
-$cusdues = $fetDuesCustomers['allDues'];
+// $duesCustomers = mysqli_query($connect, "SELECT SUM(total_dues) AS allDues FROM `customer_add`");
+// $fetDuesCustomers = mysqli_fetch_assoc($duesCustomers);
+// $cusdues = $fetDuesCustomers['allDues'];
 
-$remCylindersQuery = mysqli_query($connect, "SELECT SUM(remaining_cylinders) AS remCylinders FROM `customer_add`");
-$fetRemCylinders = mysqli_fetch_assoc($remCylindersQuery);
-$remCylinders = $fetRemCylinders['remCylinders'];
+// $remCylindersQuery = mysqli_query($connect, "SELECT SUM(remaining_cylinders) AS remCylinders FROM `customer_add`");
+// $fetRemCylinders = mysqli_fetch_assoc($remCylindersQuery);
+// $remCylinders = $fetRemCylinders['remCylinders'];
 
 // $getCountofExpenseOfToday = mysqli_query($connect, "SELECT SUM(expense_amount) AS totalExpenseToday FROM expense WHERE DATE(expense_date) = CURDATE()");
 // $fetchExpenseToday = mysqli_fetch_assoc($getCountofExpenseOfToday);

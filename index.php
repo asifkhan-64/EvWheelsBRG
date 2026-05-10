@@ -44,7 +44,7 @@
         <meta content="ThemeDesign" name="author" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-        <link rel="shortcut icon" href="assets/logo.png">
+        <link rel="shortcut icon" href="assets/ev-logo.png">
 
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
@@ -132,7 +132,7 @@
                                 <div class="card " style="opacity: 0.95 !important;">
                                     <div class="card-body">
                                         <h3 class="text-center mt-0 m-b-15 animate__animated animate__bounce">
-                                            <a  class="logo logo-admin"><img src="assets/logo.png" width="18%" height="20%"> <h3 style="font-family: Lucida Handwriting"><?php echo $fet['shop_title']; ?></h3></a>
+                                            <a  class="logo logo-admin"><img src="assets/ev-logo.png" width="18%" height="20%"> <h3 style="font-family: Lucida Handwriting"><?php echo $fet['shop_title']; ?></h3></a>
                                         </h3>
                 
                                         <!-- <h4 class="text-muted text-center font-18"><b>Sign In</b></h4> -->
