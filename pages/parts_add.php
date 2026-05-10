@@ -97,7 +97,7 @@ include('../_partials/header.php');
                                     <tr>
                                         <td>' . $iteration++ . '</td>
                                         <td>' . $rowParts['part_name'] . '</td>
-                                        <td><a href="part_edit.php?id=' . $rowParts['p_id'] . '" type="button" class="btn text-white btn-warning waves-effect waves-light">Edit</a></td>
+                                        <td class="text-center"><a href="part_edit.php?id=' . $rowParts['p_id'] . '" type="button" class="btn text-white btn-warning waves-effect waves-light">Edit</a></td>
                                     </tr>
                                     ';
                                 }

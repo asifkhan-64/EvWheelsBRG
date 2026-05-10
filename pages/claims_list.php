@@ -42,7 +42,7 @@ include('../_partials/header.php');
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
-                <h5 class="page-title">Battery Types</h5>
+                <h5 class="page-title"><i class="fa fa-check-circle"></i>&nbsp; EV Claims (Pending)</h5>
             </div>
         </div>
         <!-- end row -->
@@ -50,68 +50,47 @@ include('../_partials/header.php');
             <div class="col-12">
                 <div class="card m-b-30">
                     <div class="card-body">
-                        <form method="POST">
-                            <div class="form-group row">
-                                <label for="example-text-input" class="col-sm-2 col-form-label">Name</label>
-                                <div class="col-sm-4">
-                                    <input class="form-control" placeholder="Battery Name" type="text" value="" id="example-text-input" name="battery_name" required="">
-                                </div>
-
-
-                                <label class="col-sm-2 col-form-label">Warranty</label>
-                                <div class="col-sm-4">
-                                    <select class="form-control designation" name="battery_warranty" required="" style="width:100%">
-                                        <option value="" disabled selected>Select Warranty</option>
-                                        <option value="1-Year">1-Year</option>
-                                        <option value="2-Years">2-Years</option>
-                                        <option value="3-Years">3-Years</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <hr>
-
-                            <div class="form-group row">
-                                <!-- <label for="example-password-input" class="col-sm-2 col-form-label"></label> -->
-                                <div class="col-sm-12" align="right">
-                                    <?php include('../_partials/cancel.php') ?>
-                                    <button type="submit" class="btn btn-primary waves-effect waves-light" name="addBattery">Add Battery</button>
-                                </div>
-                            </div>
-                        </form>
-                        <h5 align="center"><?php echo $error ?></h5>
-                        <h5 align="center"><?php echo $added ?></h5>
-                        <h5 align="center"><?php echo $alreadyAdded ?></h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12">
-                <div class="card m-b-30">
-                    <div class="card-body">
-                        <h4 class="mt-0 header-title">Battries List</h4>
+                        <h4 class="mt-0 header-title">Pending Claims List</h4>
 
                         <table id="datatable" class="table dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Battery Name</th>
-                                    <th>Warranty</th>
+                                    <th>Customer</th>
+                                    <th>Chassis #</th>
+                                    <th>Claim</th>
+                                    <th>Qty</th>
+                                    <th>Claim Date</th>
+                                    <th>Status</th>
                                     <th class="text-center"> <i class="fa fa-edit"></i>
                                     </th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
-                                $retBattries = mysqli_query($connect, "SELECT * FROM batteries");
+                                $retClaims = mysqli_query($connect, "SELECT claims.*, customer_add.customer_name, customer_add.customer_contact, customer_add.customer_address, customer_add.customer_cnic, parts.part_name FROM `claims`
+                                INNER JOIN customer_add ON customer_add.c_id = claims.customer_id
+                                INNER JOIN parts ON parts.p_id = claims.part_id
+                                WHERE claims.claim_status = '1' ORDER BY claims.claim_date DESC");
                                 $iteration = 1;
 
-                                while ($rowBattries = mysqli_fetch_assoc($retBattries)) {
+                                while ($rowClaims = mysqli_fetch_assoc($retClaims)) {
                                     echo '
                                     <tr>
                                         <td>' . $iteration++ . '</td>
-                                        <td>' . $rowBattries['battery_name'] . '</td>
-                                        <td>' . $rowBattries['battery_warranty'] . '</td>
-                                        <td class="text-center"><a href="battery_edit.php?id=' . $rowBattries['b_id'] . '" type="button" class="btn text-white btn-warning waves-effect waves-light">Edit</a></td>
+                                        <td>' . $rowClaims['customer_name'] . '</td>
+                                        <td>' . $rowClaims['chassis_number'] . '</td>
+                                        <td>' . $rowClaims['part_name'] . '</td>
+                                        <td>' . $rowClaims['claim_qty'] . '</td>
+                                        <td>' . $rowClaims['claim_date'] . '</td>';
+
+                                        if ($rowClaims['claim_status'] == '1') {
+                                            echo '<td><a href="claim_status.php?id=' . $rowClaims['cl_id'] . '"><span class="p-3 badge badge-warning">Pending</span></a></td>';
+                                        } else if ($rowClaims['claim_status'] == '0') {
+                                            echo '<td><a href="claim_status.php?id=' . $rowClaims['cl_id'] . '"><span class="p-3 badge badge-success">Received</span></a></td>';
+                                        }
+                                        echo '
+                                        <td class="text-center"><a href="claim_edit.php?id=' . $rowClaims['cl_id'] . '" type="button" class="btn text-white btn-warning waves-effect waves-light">Edit</a></td>
                                     </tr>
                                     ';
                                 }
