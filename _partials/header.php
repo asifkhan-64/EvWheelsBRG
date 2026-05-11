@@ -192,6 +192,14 @@ $fet = mysqli_fetch_assoc($get);
                         </li>
 
                         <li class="has_sub">
+                            <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-users "></i> <span> Customers</span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+                            <ul class="list-unstyled">
+                                <li><a href="customer_add.php">Add Customer</a></li>
+                                <li><a href="customers_list.php">Customers List</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="has_sub">
                             <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-shopping-cart "></i> <span> Sell</span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
                             <ul class="list-unstyled">
                                 <li><a href="sell_stock.php">Sell Stock</a></li>
