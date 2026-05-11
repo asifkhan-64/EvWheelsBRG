@@ -42,7 +42,7 @@ include('../_partials/header.php');
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
-                <h5 class="page-title"><i class="fa fa-check-circle"></i>&nbsp; EV Claims (Pending)</h5>
+                <h5 class="page-title"><i class="fa fa-check-circle"></i>&nbsp;&nbsp;EV Claims (Pending)</h5>
             </div>
         </div>
         <!-- end row -->

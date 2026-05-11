@@ -61,15 +61,17 @@ include('../_partials/header.php');
                                     <th>Claim</th>
                                     <th>Qty</th>
                                     <th>Claim Date</th>
+                                    <th>Received Date</th>
                                     <th>Status</th>
                                     </th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
-                                $retClaims = mysqli_query($connect, "SELECT claims.*, customer_add.customer_name, customer_add.customer_contact, customer_add.customer_address, customer_add.customer_cnic, parts.part_name FROM `claims`
+                                $retClaims = mysqli_query($connect, "SELECT claims.*, customer_add.customer_name, customer_add.customer_contact, customer_add.customer_address, customer_add.customer_cnic, parts.part_name, claims_received.auto_date FROM `claims`
                                 INNER JOIN customer_add ON customer_add.c_id = claims.customer_id
                                 INNER JOIN parts ON parts.p_id = claims.part_id
+                                INNER JOIN claims_received ON claims_received.claim_id = claims.cl_id
                                 WHERE claims.claim_status = '0' ORDER BY claims.claim_date DESC");
                                 $iteration = 1;
 
@@ -81,7 +83,8 @@ include('../_partials/header.php');
                                         <td>' . $rowClaims['chassis_number'] . '</td>
                                         <td>' . $rowClaims['part_name'] . '</td>
                                         <td>' . $rowClaims['claim_qty'] . '</td>
-                                        <td>' . $rowClaims['claim_date'] . '</td>';
+                                        <td>' . $rowClaims['claim_date'] . '</td>
+                                        <td>' . substr($rowClaims['auto_date'], 0, 10) . '</td>';
 
                                         if ($rowClaims['claim_status'] == '1') {
                                             echo '<td><span class="p-3 badge badge-warning">Pending</span></td>';

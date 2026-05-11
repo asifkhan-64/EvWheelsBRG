@@ -77,7 +77,7 @@ include('../_partials/header.php');
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
-                <h5 class="page-title"><i class="fa fa-check-circle"></i>&nbsp;Claim Edit</h5>
+                <h5 class="page-title"><i class="fa fa-check-circle"></i>&nbsp;&nbsp;Claim Edit</h5>
             </div>
         </div>
         <!-- end row -->

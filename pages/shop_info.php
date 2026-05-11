@@ -40,7 +40,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
-                <h5 class="page-title">Shop Details</h5>
+                <h5 class="page-title"><i class="fas fa-synagogue"></i>&nbsp;&nbsp;Shop Details</h5>
             </div>
         </div>
         <!-- end row -->

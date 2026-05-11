@@ -36,7 +36,7 @@ include('../_partials/header.php');
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
-                <h5 class="page-title">Battery Type Edit</h5>
+                <h5 class="page-title"><i class="fa fa-battery-three-quarters"></i>&nbsp;&nbsp;Battery Type Edit</h5>
             </div>
         </div>
         <!-- end row -->

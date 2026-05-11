@@ -34,7 +34,7 @@ include('../_partials/header.php');
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
-                <h5 class="page-title">EV Parts Edit</h5>
+                <h5 class="page-title"><i class="fa-solid fa-list-alt"></i>&nbsp;&nbsp;EV Parts Edit</h5>
             </div>
         </div>
         <!-- end row -->

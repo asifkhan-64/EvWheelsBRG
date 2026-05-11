@@ -42,7 +42,7 @@
                                 <div class="col-sm-12">
                                     <div class="float-right page-breadcrumb">
                                     </div>
-                                    <h5 class="page-title">Edit User</h5>
+                                    <h5 class="page-title"><i class="fas fa-user"></i>&nbsp;&nbsp;Edit User</h5>
                                 </div>
                             </div>
                             <!-- end row -->

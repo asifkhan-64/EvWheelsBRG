@@ -24,7 +24,7 @@ include('../_partials/header.php')
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
-                <h5 class="page-title">Backup</h5>
+                <h5 class="page-title"><i class="fas fa-database"></i>&nbsp;&nbsp;Backup</h5>
             </div>
         </div>
 

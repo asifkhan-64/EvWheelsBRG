@@ -53,7 +53,7 @@ include('../_partials/header.php');
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
-                <h5 class="page-title"></h5>
+                <h5 class="page-title"><i class="dripicons-meter"></i>&nbsp;&nbsp;Dashboard</h5>
             </div>
         </div>
 
