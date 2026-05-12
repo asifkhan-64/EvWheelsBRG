@@ -26,7 +26,7 @@ $fet = mysqli_fetch_assoc($get);
     <meta content="ThemeDesign" name="author" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- <link rel="shortcut icon" href="../assets/LogoFinal.png"> -->
-    <link rel="shortcut icon" href="../assets/logo.png">
+    <link rel="shortcut icon" href="../assets/ev-logo.png">
     <!--Morris Chart CSS -->
     <link rel="stylesheet" href="../assets/plugins/morris/morris.css">
     <link href="../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
@@ -108,14 +108,6 @@ $fet = mysqli_fetch_assoc($get);
                         </li>
 
                         <li class="has_sub">
-                            <a href="javascript:void(0);" class="waves-effect"><i class="fa-solid fa-motorcycle"></i> <span> Purchase Stock</span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
-                            <ul class="list-unstyled">
-                                <li><a href="stock_purchase.php">Add Purchase</a></li>
-                                <li><a href="stock_purchase_list.php">Purchase List</a></li>
-                            </ul>
-                        </li>
-
-                        <li class="has_sub">
                             <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-users "></i> <span> Customers</span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
                             <ul class="list-unstyled">
                                 <li><a href="customer_add.php">Add Customer</a></li>
@@ -124,9 +116,17 @@ $fet = mysqli_fetch_assoc($get);
                         </li>
 
                         <li class="has_sub">
+                            <a href="javascript:void(0);" class="waves-effect"><i class="fa-solid fa-motorcycle"></i> <span> Purchase Stock</span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+                            <ul class="list-unstyled">
+                                <li><a href="stock_purchase.php">Add Purchase</a></li>
+                                <li><a href="stock_purchase_list.php">Purchase List</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="has_sub">
                             <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-shopping-cart "></i> <span> Sell</span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
                             <ul class="list-unstyled">
-                                <li><a href="sell_stock.php">Sell Stock</a></li>
+                                <li><a href="sell_stock.php">Customer Sell</a></li>
                                 <li><a href="sell_stock_list.php">Sell List</a></li>
                             </ul>
                         </li>
