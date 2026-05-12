@@ -175,7 +175,6 @@ $fet = mysqli_fetch_assoc($get);
                             <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-book"></i> <span> Reports</span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
                             <ul class="list-unstyled">
                                 <li><a href="report_expenses.php">Expenses Report</a></li>
-                                <li><a href="report_bikes.php">Bikes Report</a></li>
                                 <li><a href="report_dues.php">Customer Dues Report</a></li>
                                 <li><a href="report_sell.php">Sell Report</a></li>
                                 <li><a href="report_stock.php">Stock Report</a></li>
