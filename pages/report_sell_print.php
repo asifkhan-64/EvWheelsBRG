@@ -164,12 +164,6 @@ $fet = mysqli_fetch_assoc($get);
                                     </div>
                                 </div>
 
-                                
-
-                               
-
-                               
-
                             </div>
                         </div>
                     <!-- </div> -->

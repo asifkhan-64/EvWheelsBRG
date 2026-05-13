@@ -7,33 +7,26 @@ if (empty($_SESSION["user"])) {
 $mysqlUserName      = "root";
 $mysqlPassword      = "";
 $mysqlHostName      = "localhost";
-$DbName             = "habibgasagency";
+$DbName             = "EVWheels";
 $backup_name        = "MyBackUp.sql";
 $tables             = array(
     "bank_accounts", 
     "bank_balance_management",
     "cart_tbl_qty",
-    "cart_tbl_weight",
-    "categories",
+    "batteries",
+    "claims",
+    "claims_received",
     "customer_add",
     "customer_pay",
     "customer_qty_invoice",
     "customer_summary_qty",
-    "customer_summary_weight",
-    "customer_weight_invoice",
-    "cylinder_recovery",
-    "cylinder_types",
-    "cylinder_type_add",
     "expense",
     "expense_category",
     "login_user",
+    "parts",
     "profit_loss_qty",
-    "profit_loss_weight",
-    "qty_prices",
-    "qty_stock_purchase",
-    "shop_info",
-    "vendor_tbl",
-    "weight_stock_purchase"
+    "stock_purchase",
+    "shop_info"
 );
 
 

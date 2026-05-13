@@ -5,49 +5,31 @@ if (empty($_SESSION["user"])) {
     header("LOCATION:../index.php");
 }
 
-// $customerQuery = mysqli_query($connect, "SELECT COUNT(*) AS allCustomers FROM `customer_add`");
-// $fetCustomers = mysqli_fetch_assoc($customerQuery);
-// $customers = $fetCustomers['allCustomers'];
+$date = date_default_timezone_set("Asia/Karachi");
+$currentDate = date('Y-m-d h:i:s A');
+$date = date('Y-m-d');
 
-// $duesCustomers = mysqli_query($connect, "SELECT SUM(total_dues) AS allDues FROM `customer_add`");
-// $fetDuesCustomers = mysqli_fetch_assoc($duesCustomers);
-// $cusdues = $fetDuesCustomers['allDues'];
+$getStockInfo = mysqli_query($connect, "SELECT COUNT(*) AS totalStock FROM `stock_purchase` WHERE bike_status = '1'");
+$fetStockInfo = mysqli_fetch_assoc($getStockInfo);
+$stock = $fetStockInfo['totalStock'];
 
-// $remCylindersQuery = mysqli_query($connect, "SELECT SUM(remaining_cylinders) AS remCylinders FROM `customer_add`");
-// $fetRemCylinders = mysqli_fetch_assoc($remCylindersQuery);
-// $remCylinders = $fetRemCylinders['remCylinders'];
+$getExpenseDaily = mysqli_query($connect, "SELECT SUM(expense_amount) AS totalExpense FROM `expense` WHERE expense_date = '$date'");
+$fetExpenseDaily = mysqli_fetch_assoc($getExpenseDaily);
+$dailyExpense = $fetExpenseDaily['totalExpense'];
 
-// $getCountofExpenseOfToday = mysqli_query($connect, "SELECT SUM(expense_amount) AS totalExpenseToday FROM expense WHERE DATE(expense_date) = CURDATE()");
-// $fetchExpenseToday = mysqli_fetch_assoc($getCountofExpenseOfToday);
-// $today = $fetchExpenseToday['totalExpenseToday'];
+$marketDuesQuery = mysqli_query($connect, "SELECT SUM(total_dues) AS marketDues FROM `customer_add`");
+$fetMarketDues = mysqli_fetch_assoc($marketDuesQuery);
+$cusdues = $fetMarketDues['marketDues'];
 
-// $getTotalOfGrocesotyTOday = mysqli_query($connect, "SELECT SUM(item_price) AS totalGrocesotyToday FROM grocessory WHERE DATE(item_date) = CURDATE()");
-// $fetchGrocesotyToday = mysqli_fetch_assoc($getTotalOfGrocesotyTOday);
-// $todayGrocesoty = $fetchGrocesotyToday['totalGrocesotyToday'];
-
-// $todayExpense = $today + $todayGrocesoty;
-
-// $getCountOfTotalWorkers = mysqli_query($connect, "SELECT COUNT(*) AS totalWorkers FROM workers");
-// $fetchTotalWorkers = mysqli_fetch_assoc($getCountOfTotalWorkers);
-// $workers = $fetchTotalWorkers['totalWorkers'];
-
-// $getDailySalesFromTillOne = mysqli_query($connect, "SELECT SUM(total_amount) AS totalSalesToday FROM till_one_reports WHERE DATE(report_date) = CURDATE()");
-// $fetchDailySalesFromTillOne = mysqli_fetch_assoc($getDailySalesFromTillOne);
-// $tillOneSale = $fetchDailySalesFromTillOne['totalSalesToday'];
-
-// $getDailySalesFromTillTwo = mysqli_query($connect, "SELECT SUM(total_amount) AS totalSalesToday FROM till_two_reports WHERE DATE(report_date) = CURDATE()");
-// $fetchDailySalesFromTillTwo = mysqli_fetch_assoc($getDailySalesFromTillTwo);
-// $tillTwoSale = $fetchDailySalesFromTillTwo['totalSalesToday'];
+$claimsQuery = mysqli_query($connect, "SELECT COUNT(*) AS totalClaims FROM `claims` WHERE claim_status = '1'");
+$fetClaims = mysqli_fetch_assoc($claimsQuery);
+$totalClaims = $fetClaims['totalClaims'];
 
 include('../_partials/header.php');
 
 ?>
 
 <link rel="stylesheet" type="text/css" href="./timeline.css">
-
-
-
-
 
 <div class="page-content-wrapper ">
     <div class="container-fluid">
@@ -62,7 +44,7 @@ include('../_partials/header.php');
                 <div class="main-timeline2" id="addUserForm">
                     <div class="timeline animate__animated animate__bounce" id="timeline">
                         <span class="icon fa fa-globe"></span>
-                        <a class="timeline-content" style="box-shadow: 3px 3px 3px 3px #ccc">
+                        <a class="timeline-content" style="box-shadow: 10px 10px 10px 10px #ccc">
                             <h3 class="title" align="center"><?php echo $fet['shop_title'] ?></h3>
                             <h3 class="title" align="center"><?php echo $fet['shop_name'] ?></h3>
                             <hr>
@@ -73,16 +55,16 @@ include('../_partials/header.php');
                     </div>
                     <div class="timeline animate__animated animate__bounce">
                         <span class="icon fa fa-calendar"></span>
-                        <a class="timeline-content" style="box-shadow: 3px 3px 3px 3px #ccc">
-                            <h3 class="title" align="center">Customers</h3>
+                        <a class="timeline-content" style="box-shadow: 10px 10px 10px 10px #ccc">
+                            <h3 class="title" align="center">EV Bikes (In Stock)</h3>
                             <hr>
                             <p class="description" align="center">
                                  
                                 <?php
-                                if (empty($customers)) {
+                                if (empty($stock)) {
                                     echo "0";
                                 } else {
-                                    echo $customers;
+                                    echo $stock;
                                 }
                                 ?>
                             </p>
@@ -91,8 +73,8 @@ include('../_partials/header.php');
 
                     <div class="timeline animate__animated animate__bounce">
                         <span class="icon fa fa-window-close"></span>
-                        <a class="timeline-content" style="box-shadow: 3px 3px 3px 3px #ccc">
-                            <h3 class="title" align="center">Customer Dues</h3>
+                        <a class="timeline-content" style="box-shadow: 10px 10px 10px 10px #ccc">
+                            <h3 class="title" align="center">Market Dues</h3>
                             <hr>
                             <p class="description" align="center">
                                  <?php
@@ -101,37 +83,48 @@ include('../_partials/header.php');
                                     } else {
                                         echo "Pkr. ".number_format($cusdues);
                                     }
-                                    ?>
+                                ?>
                             </p>
                         </a>
                     </div>
 
                     <div class="timeline animate__animated animate__bounce">
                         <span class="icon fa fa-calendar"></span>
-                        <a class="timeline-content" style="box-shadow: 3px 3px 3px 3px #ccc">
-                            <h3 class="title" align="center">Pending Cylinders</h3>
+                        <a class="timeline-content" style="box-shadow: 10px 10px 10px 10px #ccc">
+                            <h3 class="title" align="center">Expense (<?php echo $date; ?>)</h3>
                             <hr>
                             <p class="description" align="center">
                                  
                                 <?php
-                                if (empty($remCylinders)) {
+                                if (empty($dailyExpense)) {
                                     echo "0";
                                 } else {
-                                    echo number_format($remCylinders);
+                                    echo number_format($dailyExpense);
                                 }
                                 ?>
                             </p>
                         </a>
                     </div>
 
+                    <div class="timeline animate__animated animate__bounce">
+                        <span class="icon fa fa-window-close"></span>
+                        <a class="timeline-content" style="box-shadow: 10px 10px 10px 10px #ccc">
+                            <h3 class="title" align="center">Claims (Pending)</h3>
+                            <hr>
+                            <p class="description" align="center">
+                                 <?php
+                                    if (empty($totalClaims)) {
+                                        echo "0";
+                                    } else {
+                                        echo $totalClaims;
+                                    }
+                                ?>
+                            </p>
+                        </a>
+                    </div>
                 </div>
             </div>
 
-            <!-- <div class="col-4">
-                <h1 class="text-center mt-5  verText" align="center">
-                    Welcome to Zaryab 
-                </h1>
-            </div> -->
         </div>
         <br>
     </div>

@@ -93,6 +93,13 @@ $fet = mysqli_fetch_assoc($get);
                             </a>
                         </li>
 
+                        <li>
+                            <a href="presentation.php" class="waves-effect">
+                                <i class="fa fa-eye"></i>
+                                <span> View Stock </span>
+                            </a>
+                        </li>
+
                         <li class="has_sub">
                             <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-battery-three-quarters"></i> <span> EV Battery</span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
                             <ul class="list-unstyled">
