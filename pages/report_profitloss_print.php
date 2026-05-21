@@ -119,6 +119,7 @@ $fet = mysqli_fetch_assoc($get);
                                                         <th> Date</th>
                                                         <th> Purchase Price</th>
                                                         <th> Selling Price</th>
+                                                        <th> Profit/Loss</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -142,6 +143,7 @@ $fet = mysqli_fetch_assoc($get);
                                                             <td>'.$row['custom_date'].'</td>
                                                             <td>'.number_format($row['bike_purchase_price']).'</td>
                                                             <td>'.number_format($row['sold_price']).'</td>
+                                                            <td>'.number_format($row['sold_price'] - $row['bike_purchase_price']).'</td>
                                                         </tr>
                                                         ';
                                                     }
@@ -154,16 +156,6 @@ $fet = mysqli_fetch_assoc($get);
                                                             <td><b>Total: </b></td>
                                                             <td><b> '.number_format($purchase).'</b></td>
                                                             <td><b> '.number_format($total).'</b></td>
-                                                        </tr>
-                                                        ';
-
-                                                    echo '
-                                                        <tr>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td><b>Profit: </b></td>
                                                             <td><b> '.number_format($total - $purchase).'</b></td>
                                                         </tr>
                                                         ';
@@ -173,13 +165,6 @@ $fet = mysqli_fetch_assoc($get);
                                         </div>
                                     </div>
                                 </div>
-
-                                
-
-                               
-
-                               
-
                             </div>
                         </div>
                     <!-- </div> -->

@@ -7,8 +7,8 @@ if (empty($_SESSION["user"])) {
 $mysqlUserName      = "root";
 $mysqlPassword      = "";
 $mysqlHostName      = "localhost";
-$DbName             = "EVWheels";
-$backup_name        = "MyBackUp.sql";
+$DbName             = "evwheels";
+$backup_name        = "EVWheelsBackup.sql";
 $tables             = array(
     "bank_accounts", 
     "bank_balance_management",

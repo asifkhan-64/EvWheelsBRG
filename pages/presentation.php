@@ -53,7 +53,7 @@ $fet = mysqli_fetch_assoc($get);
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
 </head>
 
-<div class="page-content-wrapper ">
+<div class="page-content-wrapper p-2">
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
@@ -81,7 +81,7 @@ $fet = mysqli_fetch_assoc($get);
                             <tbody>
                                 <?php
                                 $retBikes = mysqli_query($connect, "SELECT stock_purchase.*, batteries.battery_name, batteries.battery_warranty FROM `stock_purchase`
-                                INNER JOIN batteries ON batteries.b_id = stock_purchase.battery_id;");
+                                INNER JOIN batteries ON batteries.b_id = stock_purchase.battery_id WHERE stock_purchase.bike_status = '1' ORDER BY stock_purchase.s_id DESC");
                                 $iteration = 1;
 
                                 while ($rowBikes = mysqli_fetch_assoc($retBikes)) {
@@ -107,7 +107,9 @@ $fet = mysqli_fetch_assoc($get);
     </div><!-- container fluid -->
 </div> <!-- Page content Wrapper -->
 </div> <!-- content -->
-<?php include('../_partials/footer.php') ?>
+<?php 
+    // include('../_partials/footer.php')
+?>
 </div>
 <!-- End Right content here -->
 </div>
